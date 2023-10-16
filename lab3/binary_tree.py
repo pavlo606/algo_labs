@@ -25,7 +25,7 @@ class BinaryTree:
     def print(self) -> str:
         if self.left:
             self.left.print()
-        print( self.value),
+        print(self.value, end=" ")
         if self.right:
             self.right.print()
 
@@ -37,3 +37,4 @@ root.left.right = BinaryTree(5)
 root.left.right.left = BinaryTree(6)
 
 print(root.is_tree_balanced())
+root.print()
