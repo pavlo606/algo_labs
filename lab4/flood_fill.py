@@ -27,6 +27,8 @@ def flood_fill(matrix, width, height, x, y, color) -> list:
     queue = deque()
     queue.append([x, y])
 
+    visited = []
+
     prev_color = matrix[x][y]
     if prev_color == color:
         return matrix
@@ -44,13 +46,21 @@ def flood_fill(matrix, width, height, x, y, color) -> list:
             matrix[currX][currY] = color
 
             if isValid(matrix, width, height, currX, currY - 1, prev_color): #Go up
-                queue.append([currX, currY - 1])
+                if [currX, currY - 1] not in visited:
+                    queue.append([currX, currY - 1])
+                    visited.append([currX, currY - 1])
             if isValid(matrix, width, height, currX + 1, currY, prev_color): #Go right
-                queue.append([currX + 1, currY])
+                if [currX + 1, currY] not in visited:
+                    queue.append([currX + 1, currY])
+                    visited.append([currX + 1, currY])
             if isValid(matrix, width, height, currX, currY + 1, prev_color): #Go down
-                queue.append([currX, currY + 1])
+                if [currX, currY + 1] not in visited:
+                    queue.append([currX, currY + 1])
+                    visited.append([currX, currY + 1])
             if isValid(matrix, width, height, currX - 1, currY, prev_color): #Go left
-                queue.append([currX - 1, currY])
+                if [currX - 1, currY] not in visited:
+                    queue.append([currX - 1, currY])
+                    visited.append([currX - 1, currY])
 
     write_file(matrix)
 
