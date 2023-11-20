@@ -2,19 +2,18 @@ def read_file_and_parse(path: str = "src/input.txt") -> tuple[int, int, list[str
     """Read data from file and parse it for beers problem"""
     with open(path, "r") as file:
         n, b = file.readline().split(" ")
-        n = int(n)
-        b = int(b)
         beers = file.readline().split(" ")
 
-        return n, b, beers
+        return int(n), int(b), beers
 
 def write_file(string: str, path: str = "src/output.txt", mode: str = "w") -> None:
     """Write data to file"""
     with open(path, mode) as file:
-        file.write(string)
+        file.write(str(string))
 
 def min_beer_types(N: int, B: int, preferences: list[str], debug: bool = False) -> int:
-    """Finds minimum number of beer sorts that we need to buy, while all employees are satisfied
+    """
+    Finds minimum number of beer sorts that we need to buy, while all employees are satisfied
     
     Arguments:
         * N (int) -- number of employee;
@@ -25,53 +24,40 @@ def min_beer_types(N: int, B: int, preferences: list[str], debug: bool = False) 
     Returns:
         One number: minimum number of beer sorts that we need to buy
     """
-    beer_count = []     # Here are preferences of employees but more comfortable
-    beer_sorts = []     # Here are types of beer that we need to buy
+    beers_graph = {}                 # Graph with employees preferences in format: { beer_sort: [emplyees] }
+    beer_sorts = list(range(B))      # Beer sorts that we need to buy
+    employees_preferences = [preference.count("Y") for preference in preferences]  # How much beer sorts each employee likes
 
-#   Converting preferences like: preferences=["YNY", "NYY"] -> beer_count=[[0, 2],[1, 2]]
-    for i in range(N):
-        tmp_employee = []
-        for j in range(B):
-            if preferences[i][j] == "Y":
-                tmp_employee.append(j)
-
-#       If employee like only one sort of beer then we definitely have to buy this sort of beer
-        if len(tmp_employee) == 1:
-            if tmp_employee[0] not in beer_sorts:
-                beer_sorts.append(tmp_employee[0])
-        elif tmp_employee not in beer_count:
-            beer_count.append(tmp_employee)
+#   Filling the beers_graph
+    for beer in range(B):
+        beers_graph[beer] = []
+        for employee in range(N):
+            if preferences[employee][beer] == "Y":
+                beers_graph[beer] += [employee]
 
     if debug:
-        print(f"primary beer_count:{beer_count}")
-        print(f"primary beer_sorts:{beer_sorts}")
+        print(f"beers_graph = {beers_graph}")
+        print(f"start employees_preferences = {employees_preferences}")
 
-    while beer_count:
-#       Deleting all employees that love any beer that we already heve to buy
-        for i in beer_count.copy():
-            for beer in beer_sorts:
-                if beer in i:
-                    beer_count.remove(i)
-                    break
+    sorted_beers_graph = sorted(beers_graph.items(), key=lambda x: len(x[1]))  # Sorting graph by length of employees
+#   Finding the beer sort in which everyone who likes it likes at least one more sort
+    for beer, employees in sorted_beers_graph:
+#       Checking if everyone who likes this beer likes one more, if not then we break the loop
+        for employee in employees:
+            if employees_preferences[employee] <= 1:
+                break
+        else:   # if previous loop wasn't breaked then we don't need to buy this sort
+            beer_sorts.remove(beer)
+            for employee in employees:
+                employees_preferences[employee] -= 1
 
-        if debug:
-            print(f"\nbeer_count:{beer_count}")
-            print(f"beer_sorts:{beer_sorts}")
-
-#       If there are employees who doesn't like any of beer that we already heve to buy
-#       Then we choose one sort that is most repeated
-        if beer_count:
-            joined_beers = []
-            for i in beer_count:
-                joined_beers += i
-            new_beer_sort = max(set(joined_beers), key=joined_beers.count)
-            beer_sorts.append(new_beer_sort)
-            if debug:
-                print(f"new beer sort:{new_beer_sort}")
+    if debug:
+        print(f"final employees_preferences = {employees_preferences}")
+        print(f"final beer_sorts = {beer_sorts}")
 
     return len(beer_sorts)
 
 if __name__ == "__main__":
-    result = min_beer_types(*read_file_and_parse(), True)
+    result = min_beer_types(*read_file_and_parse(), debug=True)
     write_file(result)
     print(f"\nresult = {result}")
