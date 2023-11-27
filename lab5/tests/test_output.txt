@@ -14,6 +14,7 @@ test_case_2 (3, 5, ['YNYNY', 'YNNYN', 'YYYNN']): 1
 test_case_20 (6, 4, ['YNYN', 'YNNY', 'YYNY', 'NYNY', 'NYYY', 'NYYN']): 2
 test_case_21 (6, 7, ['YNYNNYY', 'YNYNYNY', 'YNNYYNY', 'NNYYYNN', 'NYYNYYY', 'NYNNYNN']): 2
 test_case_22 (6, 4, ['YNYN', 'NYNY', 'YYNY', 'NNYN', 'YNNN', 'NYYN']): 3
+test_case_23 (6, 4, ['YNNN', 'YYNN', 'NYYN', 'YYNN', 'YYYY', 'YYYY']): 2
 test_case_3 (6, 2, ['NY', 'YN', 'YN', 'YY', 'YN', 'NY']): 2
 test_case_4 (4, 5, ['YNNNN', 'YYYNN', 'YNYYY', 'YNYNN']): 1
 test_case_5 (5, 3, ['YNN', 'YYY', 'YYY', 'YNN', 'NYN']): 2

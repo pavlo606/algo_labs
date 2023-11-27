@@ -41,16 +41,20 @@ def min_beer_types(N: int, B: int, preferences: list[str], debug: bool = False) 
 
     sorted_beers_graph = sorted(beers_graph.items(), key=lambda x: len(x[1]))  # Sorting graph by length of employees
 #   Finding the beer sort in which everyone who likes it likes at least one more sort
+    counter = 0
     for beer, employees in sorted_beers_graph:
+        counter += 1
 #       Checking if everyone who likes this beer likes one more, if not then we break the loop
         for employee in employees:
+            counter += 1
             if employees_preferences[employee] <= 1:
                 break
         else:   # if previous loop wasn't breaked then we don't need to buy this sort
             beer_sorts.remove(beer)
             for employee in employees:
+                counter += 1
                 employees_preferences[employee] -= 1
-
+    print(counter)
     if debug:
         print(f"final employees_preferences = {employees_preferences}")
         print(f"final beer_sorts = {beer_sorts}")
