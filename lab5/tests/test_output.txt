@@ -1,0 +1,24 @@
+test_case_0 (3, 3, ['YYN', 'YNY', 'NYY']): 2
+test_case_1 (5, 3, ['YYY', 'YNN', 'YNY', 'YNN', 'YNY']): 1
+test_case_10 (4, 5, ['YNYNN', 'YNNNY', 'YNNNN', 'YYYNN']): 1
+test_case_11 (4, 3, ['YYY', 'YNY', 'YNY', 'YNY']): 1
+test_case_12 (6, 2, ['YN', 'YY', 'YN', 'NY', 'YN', 'YY']): 2
+test_case_13 (5, 3, ['YYY', 'NYN', 'YYY', 'YNY', 'NYN']): 2
+test_case_14 (4, 3, ['YNN', 'YNY', 'YNY', 'YNY']): 1
+test_case_15 (3, 2, ['YYN', 'YYY', 'YNY']): 1
+test_case_16 (5, 4, ['YNYY', 'YNNY', 'YNYN', 'YNYN', 'YYNY']): 1
+test_case_17 (4, 5, ['YNYNN', 'YNNYY', 'YNYNY', 'YNNYN']): 1
+test_case_18 (6, 3, ['YYY', 'NYY', 'YYY', 'YNY', 'YYY', 'YNN']): 2
+test_case_19 (3, 3, ['YNN', 'NYY', 'YNY']): 2
+test_case_2 (3, 5, ['YNYNY', 'YNNYN', 'YYYNN']): 1
+test_case_20 (6, 4, ['YNYN', 'YNNY', 'YYNY', 'NYNY', 'NYYY', 'NYYN']): 2
+test_case_21 (6, 7, ['YNYNNYY', 'YNYNYNY', 'YNNYYNY', 'NNYYYNN', 'NYYNYYY', 'NYNNYNN']): 2
+test_case_22 (6, 4, ['YNYN', 'NYNY', 'YYNY', 'NNYN', 'YNNN', 'NYYN']): 3
+test_case_23 (6, 4, ['YNNN', 'YYNN', 'NYYN', 'YYNN', 'YYYY', 'YYYY']): 2
+test_case_3 (6, 2, ['NY', 'YN', 'YN', 'YY', 'YN', 'NY']): 2
+test_case_4 (4, 5, ['YNNNN', 'YYYNN', 'YNYYY', 'YNYNN']): 1
+test_case_5 (5, 3, ['YNN', 'YYY', 'YYY', 'YNN', 'NYN']): 2
+test_case_6 (3, 4, ['YNYN', 'YNNN', 'YYYN']): 1
+test_case_7 (6, 4, ['YNYY', 'YNYN', 'YNYY', 'NNYN', 'YYNN', 'YNNY']): 2
+test_case_8 (2, 3, ['YYY', 'YNY']): 1
+test_case_9 (5, 2, ['YY', 'YN', 'NY', 'NY', 'YN']): 2
