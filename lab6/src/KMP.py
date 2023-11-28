@@ -1,4 +1,4 @@
-def prefix(string: str):
+def prefix(string: str) -> list[int]:
     i = 1
     j = 0
     p = [0] * len(string)
@@ -15,7 +15,7 @@ def prefix(string: str):
     return p
 
 
-def KMP(string, substring):
+def KMP(string: str, substring: str) -> list[int]:
     if not substring:
         return [i for i in range(len(string))]
     p = prefix(substring)
@@ -40,8 +40,8 @@ def KMP(string, substring):
 
     return sub_indexes
 
+if __name__ == "__main__":
+    string = "abababacdabababa"
+    sub_string = "ababa"
 
-string = "abababacdabababa"
-sub_string = "ababa"
-
-print(KMP(string, sub_string))
+    print(KMP(string, sub_string))

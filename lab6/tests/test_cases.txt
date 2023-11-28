@@ -1,17 +1,17 @@
-Basic Matching : ABCABCABC : ABC : 0,3,6
-No Match : ABCABCABC : XYZ : 
-Pattern at the Beginning : ABCABCABC : ABCABC : 0,3
-Pattern at the End : ABCABCABC : BC : 1,4,7
-Repeated Pattern : ABABABAB : AB : 0,2,4,6
-Complex Pattern : AABAACAADAABAABA : AABA : 0,9,12
-Random Pattern : ABCDEFGHIJKLMNOP : FGHIJ : 5
-Long Pattern : ABCDEFGHIJKLMNOP : ABCDEFGHIJKLMNOP : 0
-Pattern with Spaces : This is an example sentence. : example : 11
-Empty Pattern : ABCABCABC :  : 0,1,2,3,4,5,6,7,8
-Complex Text : ababcabcabcabcabcabc : abcabc : 2,5,8,11,14
-Text with Numbers : 123456789012345 : 345 : 2,12
-Case-sensitive Matching : AbCDEfghABC : abc : 
-Special Characters : !@#$%^&*()_+!@#$%^&* : ^&* : 5,17
-Pattern with Repetition : ababababab : abab : 0,2,4,6
-Single Character Pattern : aaaaaaa : a : 0,1,2,3,4,5,6
-Overlapping Pattern : ababab : aba : 0,2
+ABCABCABC : ABC : 0,3,6 : Basic Matching
+ABCABCABC : XYZ :  : No Match
+ABCABCABC : ABCABC : 0,3 : Pattern at the Beginning
+ABCABCABC : BC : 1,4,7 : Pattern at the End
+ABABABAB : AB : 0,2,4,6 : Repeated Pattern
+AABAACAADAABAABA : AABA : 0,9,12 : Complex Pattern
+ABCDEFGHIJKLMNOP : FGHIJ : 5 : Random Pattern
+ABCDEFGHIJKLMNOP : ABCDEFGHIJKLMNOP : 0 : Long Pattern
+This is an example sentence. : example : 11 : Pattern with Spaces
+ABCABCABC :  : 0,1,2,3,4,5,6,7,8 : Empty Pattern
+ababcabcabcabcabcabc : abcabc : 2,5,8,11,14 : Complex Text
+123456789012345 : 345 : 2,12 : Text with Numbers
+AbCDEfghABC : abc :  : Case-sensitive Matching
+!@#$%^&*()_+!@#$%^&* : ^&* : 5,17 : Special Characters
+ababababab : abab : 0,2,4,6 : Pattern with Repetition
+aaaaaaa : a : 0,1,2,3,4,5,6 : Single Character Pattern
+ababab : aba : 0,2 : Overlapping Pattern

@@ -9,7 +9,7 @@ def read_test_cases(filename="./tests/test_cases.txt"):
         lines = file.read()
         result = []
         for line in lines.split("\n"):
-            name, string, substring, excpected = line.split(" : ")
+            string, substring, excpected, name = line.split(" : ")
             excpected = list(map(int, excpected.split(","))) if excpected else []
             result.append((name, string, substring, excpected))
         return result
